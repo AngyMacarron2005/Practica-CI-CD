@@ -13,6 +13,7 @@ WORKDIR /app
 COPY --from=builder /app/package*.json ./
 RUN npm ci --omit=dev
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/src ./src
+COPY --from=builder /app/data ./data
+COPY --from=builder /app/*.js ./
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["npm", "start"]git add .
