@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventario-app-green
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: inventario
+      version: green
+  template:
+    metadata:
+      labels:
+        app: inventario
+        version: green
+    spec:
+      containers:
+      - name: app
+        image: ghcr.io/AngyMacarron2005/practica-ci-cd:latest
+        ports:
+        - containerPort: 3000

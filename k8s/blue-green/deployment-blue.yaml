@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventario-app-blue
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: inventario
+      version: blue
+  template:
+    metadata:
+      labels:
+        app: inventario
+        version: blue
+    spec:
+      containers:
+      - name: app
+        # Angy: Asegúrate de cambiar "AngyMacarron2005" por el dueño real del repo si cambia
+        image: ghcr.io/AngyMacarron2005/practica-ci-cd:latest 
+        ports:
+        - containerPort: 3000
