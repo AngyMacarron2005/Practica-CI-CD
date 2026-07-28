@@ -16,4 +16,4 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/data ./data
 COPY --from=builder /app/*.js ./
 EXPOSE 3000
-CMD ["npm", "start"]git add .
+CMD npm start
