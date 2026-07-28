@@ -1,0 +1,5 @@
+# Ignorar vulnerabilidades de Alpine Linux por motivos de la practica
+CVE-2026-31789
+
+# Ignorar vulnerabilidad de la libreria tar de Node.js
+CVE-2026-59873
