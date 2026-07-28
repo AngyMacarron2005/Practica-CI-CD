@@ -16,6 +16,12 @@ spec:
     spec:
       containers:
       - name: app
-        image: ghcr.io/AngyMacarron2005/practica-ci-cd:latest
+        image: ghcr.io/angymacarron2005/practica-ci-cd:latest
         ports:
         - containerPort: 3000
+        # --- AGREGUEN ESTO PARA QUE LA APP SEPA QUE ES LA VERSIÓN VERDE ---
+        env:
+        - name: APP_COLOR
+          value: "green"
+        - name: APP_VERSION
+          value: "v2"

@@ -6,6 +6,7 @@ spec:
   type: NodePort
   selector:
     app: inventario
+    version: green
   ports:
     - protocol: TCP
       port: 80
