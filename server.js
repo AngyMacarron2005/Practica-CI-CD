@@ -7,12 +7,21 @@ const APP_VERSION = process.env.APP_VERSION || 'v1';
 const APP_COLOR = process.env.APP_COLOR || 'blue';
 const SIMULATE_FAILURE = process.env.SIMULATE_FAILURE === 'true';
 
+// --- NUEVO COMPONENTE 3: Variables para el arranque lento ---
+const startTime = Date.now();
+const startupDelay = process.env.STARTUP_DELAY_SECONDS ? parseInt(process.env.STARTUP_DELAY_SECONDS) * 1000 : 0;
+
 function createApp() {
   const app = express();
   app.use(express.json());
   app.use(express.static(path.join(__dirname, 'public')));
 
   app.get('/health', (req, res) => {
+    // --- NUEVO COMPONENTE 3: Simulación de carga ---
+    if (Date.now() - startTime < startupDelay) {
+      return res.status(503).json({ status: 'iniciando base de datos...' });
+    }
+
     if (SIMULATE_FAILURE || !db.canAccessDb()) {
       return res.status(500).json({ status: 'error', reason: 'fallo simulado o base de datos no accesible' });
     }
