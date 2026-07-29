@@ -1,5 +1,5 @@
 Practica de Integracion y Despliegue Continuo (CI/CD) y Orquestacion con Kubernetes
-Autores: Daniel y Angy
+Autores: Daniel Pacheco, Angélica Panama
 Materia: Sistemas Distribuidos
 Proyecto: Inventario-App
 
